@@ -95,6 +95,20 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+TARGET_RECOVERY_DEVICE_MODULES += \
+	libqtivibratoreffect \
+	vendor.qti.hardware.vibrator.impl \
+	vendor.qti.hardware.vibrator.service \
+
+RECOVERY_BINARY_SOURCE_FILES += \
+	$(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.qti.hardware.vibrator.service \
+
+RECOVERY_LIBRARY_SOURCE_FILES += \
+	$(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-cpp.so \
+	$(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
+	$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libqtivibratoreffect.so \
+	$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/vendor.qti.hardware.vibrator.impl.so \
+
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 TARGET_RECOVERY_QCOM_RTC_FIX := true
